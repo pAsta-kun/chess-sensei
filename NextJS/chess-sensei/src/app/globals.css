@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --text: #050200;
+  --text: #772F00;
   --background: #f2caad;
   --primary: #ad3401;
   --secondary: #ba6440;
@@ -11,6 +11,9 @@
 }
 
 body {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
   color: var(--text);
   background: var(--background);
 }
