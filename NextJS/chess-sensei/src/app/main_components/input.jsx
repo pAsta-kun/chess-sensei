@@ -1,3 +1,5 @@
+"use client";
+
 function InputBar ({onMessage, display}) 
 {
     const handleKeyPress = (event) =>

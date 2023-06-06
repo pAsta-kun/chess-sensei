@@ -1,4 +1,4 @@
-"use client";``
+"use client";
 
 import InputBar from "./input"
 import Toggle from "./toggleSwitch"
