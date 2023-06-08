@@ -13,8 +13,7 @@ function Board({pgn}) {
   useEffect(() => {
     if(pgn == null)
       pgn = ""
-    console.log("board" + pgn)
-    
+      
     game.current.loadPgn(pgn);
     setFen(game.current.fen());
     setFullGame(game.current.history());

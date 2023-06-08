@@ -11,7 +11,6 @@ export default function Home() {
   const [messages, setMessages] = useState([{message: "", display: true}]);
   const [i, setI] = useState(0);
   const handleMessage = (pgn, display) => {
-
       setMessages(prevState => [...prevState, {pgn: pgn, display: display}]);
       setI(i + 1);
   };
@@ -21,7 +20,7 @@ export default function Home() {
       <Navbar/>
       <div  className="flex justify-center h-full">
         <DisplayBoard messages={messages} i={i} onMessage={handleMessage}/>
-        <Chatbox/>
+        <Chatbox pgn={messages} i={i}/>
       </div>
     </div>
   )

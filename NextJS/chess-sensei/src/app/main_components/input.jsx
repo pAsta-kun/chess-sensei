@@ -17,7 +17,7 @@ function InputBar ({onMessage, display})
     {
         return (
             <div className="p-2 rounded-2xl border-accent border-4 flex justify-center items-center bg-accent bg-opacity-10 w-full h-14">
-                <textarea id="textInput" class="bg-zero outline-none text-md w-full resize-none" rows="1" onKeyDown={handleKeyPress}></textarea>
+                <textarea id="textInput" className="bg-zero outline-none text-md w-full resize-none" rows="1" onKeyDown={handleKeyPress}></textarea>
                     <button className="w-8 text-accent">-&gt;</button>
             </div>
         )

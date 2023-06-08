@@ -9,7 +9,6 @@ function DisplayBoard({ messages, i, onMessage })
    
     if(messages[i].display)
     {
-        console.log(messages[i].pgn)
         return(
             <div className="w-2/5 mx-6 flex">
                 <Board/>
