@@ -11,7 +11,6 @@ function Chatbox({pgn, i})
     const [display, setDisplay] = useState(true);
     const [messages, setMessages] = useState([]);
     const [fullGame, setFullGame] = useState([]);
-    const [arrayIndex, setArrayIndex] = useState(-2)
 
     useEffect(() => {
         if(pgn[i].pgn != undefined)
@@ -42,8 +41,23 @@ function Chatbox({pgn, i})
         <div className="p-3 rounded-3xl border-accent border-4 flex flex-col items-center justify-between bg-accent bg-opacity-10 w-3/12 h-4/5 overflow-hidden">
             <Toggle onClick={setDisplay}/>
             <div className="h-full w-full flex justify-start items-center flex-col">
-                <MoveSeqeucne display={display} messages={arrayIndex} i={arrayIndex}/>
-                <MoveSeqeucne display={display} messages={arrayIndex+1} i={arrayIndex+1}/>
+            {fullGame.map((test, index) => {
+                if (index % 2 === 0) { // only process every other move
+                    let whiteMove = test;
+                    let blackMove = fullGame[index + 1]; // use next move for black
+                    let arrayIndex = Math.floor(index / 2);
+                    return (
+                        <MoveSeqeucne 
+                            display={display} 
+                            whiteMove={whiteMove} 
+                            blackMove={blackMove} 
+                            key={index} 
+                            i={arrayIndex}/>
+                    );
+                    }
+                    return null; // return null for odd index, so nothing is rendered for it
+                })}
+
             </div>
 
             <InputBar onMessage={handleMessage} display={display}/>
