@@ -47,6 +47,7 @@ function Board({pgn}) {
         chess.move(fullGame[i]);
       }
       const fen = chess.fen()
+      console.log(fen);
       setFen(fen);
       setCounter(num); // update counter after the move
     }
