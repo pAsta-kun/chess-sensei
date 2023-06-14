@@ -46,6 +46,7 @@ function Chatbox({pgn, i, counter})
                     let whiteMove = test;
                     let blackMove = fullGame[index + 1]; // use next move for black
                     let arrayIndex = Math.floor(index / 2);
+                    console.log(arrayIndex + "adad")
                     return (
                         <MoveSeqeucne 
                             display={display} 
@@ -53,7 +54,7 @@ function Chatbox({pgn, i, counter})
                             blackMove={blackMove} 
                             key={index} 
                             i={arrayIndex}
-                            counter={counter}
+                            counter={(counter/2)-1}
                             />
                     );
                     }
