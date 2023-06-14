@@ -6,7 +6,7 @@ import MoveSeqeucne from "./moveSequence"
 import { useState, useEffect } from 'react';
 import { Chess } from "chess.js";
 
-function Chatbox({pgn, i})
+function Chatbox({pgn, i, counter})
 {
     const [display, setDisplay] = useState(true);
     const [messages, setMessages] = useState([]);
@@ -52,7 +52,9 @@ function Chatbox({pgn, i})
                             whiteMove={whiteMove} 
                             blackMove={blackMove} 
                             key={index} 
-                            i={arrayIndex}/>
+                            i={arrayIndex}
+                            counter={counter}
+                            />
                     );
                     }
                     return null; // return null for odd index, so nothing is rendered for it

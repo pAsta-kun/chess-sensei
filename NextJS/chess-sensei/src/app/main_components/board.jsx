@@ -4,10 +4,9 @@ import { useState, useRef, useEffect } from "react";
 import { Chess } from "chess.js";
 import { Chessboard } from "react-chessboard";
 
-function Board({pgn}) {
+function Board({pgn, counter, setCounter}) {
   const game = useRef(new Chess());
   const [fen, setFen] = useState(game.current.fen());
-  const [counter, setCounter] = useState(-1);
   const [fullGame, setFullGame] = useState([]);
 
   useEffect(() => {
