@@ -4,7 +4,7 @@ import Board from "./board"
 import InputBar from "./input"
 import { useState } from 'react';
 
-function DisplayBoard({ messages, i, onMessage, counter, setCounter }) 
+function DisplayBoard({ messages, i, onMessage, counter, setCounter, analysis, setAnalysis }) 
 {
    
     if(messages[i].display)
@@ -24,7 +24,7 @@ function DisplayBoard({ messages, i, onMessage, counter, setCounter })
     {
         return(
             <div className="w-2/5  mx-6">
-                <Board key={i} pgn={messages[i].pgn} counter={counter} setCounter={setCounter}/>
+                <Board key={i} pgn={messages[i].pgn} counter={counter} setCounter={setCounter} analysis={analysis} setAnalysis={setAnalysis}/>
             </div>
             )
     }

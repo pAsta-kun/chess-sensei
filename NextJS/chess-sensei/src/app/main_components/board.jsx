@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { Chess } from "chess.js";
 import { Chessboard } from "react-chessboard";
 
-function Board({pgn, counter, setCounter}) {
+function Board({pgn, counter, setCounter, analysis, setAnalysis}) {
   const game = useRef(new Chess());
   const [fen, setFen] = useState(game.current.fen());
   const [fullGame, setFullGame] = useState([]);
@@ -49,6 +49,7 @@ function Board({pgn, counter, setCounter}) {
       console.log(fen);
       setFen(fen);
       setCounter(num); // update counter after the move
+      getResonse(fen)
     }
     else if(counter === -1)
     {
@@ -56,6 +57,29 @@ function Board({pgn, counter, setCounter}) {
     }
     
     
+  }
+
+  async function getResonse(fen)
+  {
+    console.log(fen)
+    try{
+      const response = await fetch("http://127.0.0.1:5000/", {
+        method: "POST",
+        body: JSON.stringify({
+          fen: fen
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+        }).then((response) => response.json());
+        let bestMove = response[0].move
+        let bestSequence = response[1].sequence
+        setAnalysis({bestMove, bestSequence})
+        console.log(analysis)
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
   }
 
   return (

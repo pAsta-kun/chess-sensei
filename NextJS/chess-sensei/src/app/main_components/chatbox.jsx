@@ -6,7 +6,7 @@ import MoveSeqeucne from "./moveSequence"
 import { useState, useEffect } from 'react';
 import { Chess } from "chess.js";
 
-function Chatbox({pgn, i, counter})
+function Chatbox({pgn, i, counter, analysis})
 {
     const [display, setDisplay] = useState(true);
     const [messages, setMessages] = useState([]);
@@ -21,7 +21,6 @@ function Chatbox({pgn, i, counter})
         }
     }, [pgn[i].pgn]);
 
-    console.log(fullGame);
 
 
     const handleMessage = (msg, isAi) => {
@@ -46,7 +45,6 @@ function Chatbox({pgn, i, counter})
                     let whiteMove = test;
                     let blackMove = fullGame[index + 1]; // use next move for black
                     let arrayIndex = Math.floor(index / 2);
-                    console.log(arrayIndex + "adad")
                     return (
                         <MoveSeqeucne 
                             display={display} 
@@ -55,6 +53,7 @@ function Chatbox({pgn, i, counter})
                             key={index} 
                             i={arrayIndex}
                             counter={(counter/2)-1}
+                            analysis={analysis}
                             />
                     );
                     }
