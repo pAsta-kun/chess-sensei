@@ -8,6 +8,7 @@ function Board({pgn, counter, setCounter, analysis, setAnalysis}) {
   const game = useRef(new Chess());
   const [fen, setFen] = useState(game.current.fen());
   const [fullGame, setFullGame] = useState([]);
+  const [pastMove, setPastMove] = useState();
 
   useEffect(() => {
     if(pgn == null)
@@ -44,12 +45,16 @@ function Board({pgn, counter, setCounter, analysis, setAnalysis}) {
       for (let i = 0; i < num; i++) 
       {
         chess.move(fullGame[i]);
+        if(i < num-1 === false)
+          setPastMove(chess.fen())
+        if(num === 1)
+          setPastMove('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1')
       }
       const fen = chess.fen()
       console.log(fen);
       setFen(fen);
       setCounter(num); // update counter after the move
-      getResonse(fen)
+      getResonse(pastMove)
     }
     else if(counter === -1)
     {
