@@ -45,13 +45,13 @@ function Board({pgn, counter, setCounter, analysis, setAnalysis}) {
       for (let i = 0; i < num; i++) 
       {
         chess.move(fullGame[i]);
+        console.log(chess.fen() + ",")
         if(i < num-1 === false)
           setPastMove(chess.fen())
         if(num === 1)
           setPastMove('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1')
       }
       const fen = chess.fen()
-      console.log(fen);
       setFen(fen);
       setCounter(num); // update counter after the move
       getResonse(pastMove)
@@ -66,7 +66,6 @@ function Board({pgn, counter, setCounter, analysis, setAnalysis}) {
 
   async function getResonse(fen)
   {
-    console.log(fen)
     try{
       const response = await fetch("http://127.0.0.1:5000/", {
         method: "POST",
@@ -80,7 +79,6 @@ function Board({pgn, counter, setCounter, analysis, setAnalysis}) {
         let bestMove = response[0].move
         let bestSequence = response[1].sequence
         setAnalysis({bestMove, bestSequence})
-        console.log(analysis)
     } catch (error) {
       console.log(error);
       return error;

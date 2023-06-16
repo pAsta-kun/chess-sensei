@@ -19,7 +19,6 @@ function MoveSeqeucne({whiteMove, blackMove, i, display, counter, analysis})
         bestSequenceMoves = "Error"
         bestMove = "Error"
     }
-    console.log(bestSequenceMoves)
 
     if(!display)
     {

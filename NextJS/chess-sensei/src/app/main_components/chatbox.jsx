@@ -31,8 +31,6 @@ function Chatbox({pgn, i, counter, analysis})
 
     const handleResponse = (msg) => {
         //let response = await getAIResponse(msg);
-        console.log(msg)
-        console.log(response)
         setMessages(prevState => [...prevState, {message: response, isAi: true}]);
     }
 
