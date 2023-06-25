@@ -31,4 +31,4 @@ function DisplayBoard({ messages, i, onMessage, counter, setCounter, analysis, s
 
 }
 
-export default DisplayBoard
+export default DisplayBoard;
