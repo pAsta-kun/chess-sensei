@@ -1,3 +1,6 @@
+Edit: I've stopped working on this project because of the AI part. i was initially planning to use the GPT3.5-tubro API but after some testing I realized that what I wanted to do isn't possible with the GPT. 
+I'm planning on continuing this project in the future by finetuning a model like Alpaca 13B to be an expert at chess and then combining that with a chess engine to have the world's first NLP Chess Engine
+
 Chess Sensei is a project I'm currently working on. The idea behind it is to make a personal AI powered chess coach.
 
 Here's what the current plan is: 
